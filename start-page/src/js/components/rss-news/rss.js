@@ -38,7 +38,7 @@ export const fullUrlArray = [
   },
   {
     service: 'Yahoo',
-    logo: 'http://l.yimg.com/rz/d/yahoo_news_en-US_s_f_p_168x21_news.png',
+    logo: 'https://www.pngfind.com/pngs/m/59-598061_yahoo-logo-png-transparent-background-layata-design-yahoo.png',
     links: [
       'https://www.yahoo.com/news/rss',
       'https://finance.yahoo.com/news/rssindex',
