@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  color: #ffffff;
+  /* background-image: url(/assets/images/day/01.jpg); */
+  transition: background-image 0.5s ease-in-out;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../assets/images/overlay.png);
+  background-size: cover;
+}
+
+.time-wrapper{
+  position: relative;
+  /* outline: 1px solid blue; */
+  width: 485px;
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.time {
+  position: relative;
+  font-size: 8rem;
+  /* outline: 1px solid blue; */
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+.greeting,
+.name {
+  display: inline-block;
+}
+
+.quote {
+  font-style: italic;
+}
+
+.quote_next {
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.next {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  font: inherit;
+  font-size: 3rem;
+  color: #ffffff;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+  /* outline: 1px solid blue; */
+}
+
+.quote_next:hover,
+.next:hover {
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.quote_next:active,
+.next:active {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+.weather{
+  margin-top: 10px;
+}
+
+@media (max-width: 991px) {
+  .time {
+    font-size: 6rem;
+  }
+
+  .time-wrapper{
+    width: 350px;
+  }
+}
+
+@media (max-width: 700px) {
+  .time-wrapper{
+    width: 235px;
+  }
+
+  .time {
+    font-size: 4rem;
+  }
+
+  h1 {
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .quote {
+    height: 2rem;
+  }
+}

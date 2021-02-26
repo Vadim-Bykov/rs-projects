@@ -1,0 +1,685 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>CSS Grid Layout</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2> CSS Grid Layout</h2>
+				<p>is the most powerful layout system available in CSS.</p>
+			</section>
+
+			<section>
+				<h4>Properties for the container Grid</h3>
+			</section>
+
+			<section>
+				<section>
+					<p>Display property</p>
+				</section>
+				<section>
+					<p>display: grid;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							}
+					</code></pre>
+					<img src="assets/images/1 display-grid.png" alt="grid">
+				</section>
+				<section>
+					<p>display: inline-grid;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: inline-grid;
+							}
+					</code></pre>
+					<img src="assets/images/2 inline-grid.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<h3>Defining an Explicit Grid</h3>
+				<p>grid-template-columns</p>
+				<p>grid-template-rows</p>
+				<p>grid-template-areas</p>
+			</section>
+
+			<section>
+				<section>
+					<p>fr - a fraction of the free space in the grid</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template-rows: 1fr 1fr;
+							grid-template-columns: 1fr 1fr 1fr;
+						}
+					</code></pre>
+					<img src="assets/images/3 grid-template-columns 1fr 1fr 1fr.png" alt="grid">
+				</section>
+				<section>
+					<p>The CSS repeat () function</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template-rows: repeat(2, 1fr);
+							grid-template-columns: repeat(3, 1fr);
+						}
+					</code></pre>
+					<img src="assets/images/3 grid-template-columns 1fr 1fr 1fr.png" alt="grid">
+				</section>
+				<section>
+					<p>Shorthand</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template: 1fr 1fr / 1fr 1fr 1fr;
+						}
+					</code></pre>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template: repeat(2,1fr) / repeat(3,1fr);
+						}
+					</code></pre>
+					<img src="assets/images/3 grid-template-columns 1fr 1fr 1fr.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<p>Percentage dimensions </p>
+				</section>
+				<section>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template-rows: 80% 120%;
+							grid-template-columns: 20% 30% 20%;
+						}
+					</code></pre>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template: 80% 120% / 20% 30% 20%;
+						}
+					</code></pre>
+					<img src="assets/images/4 grid-template-columns_20per.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<p>px - non-flexible units</p>
+				</section>
+				<section>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template-rows: 80px 120px;
+							grid-template-columns: 200px 300px 200px;
+						}
+					</code></pre>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template: 80px 120px / 200px 300px 200px;
+						}
+					</code></pre>
+					<img src="assets/images/4 grid-template-columns_20per.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<p>The minmax (min, max) function</p>
+				</section>
+				<section>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template-columns: minmax(200px, 300px) minmax(100px,
+							200px) minmax(250px, 150px);
+							grid-template-rows: minmax(100px, 110%) minmax(50px, 1fr)
+						}
+					</code></pre>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template: minmax(100px, 110%) minmax(50px, 1fr) / 
+							minmax(200px, 300px) minmax(100px, 200px) minmax(250px, 
+							150px);
+						}
+					</code></pre>
+					<img src="assets/images/5 grid-template-columns minmax.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<p>grid-template-areas</p>
+				</section>
+				<section>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template-columns: 150px 1fr;
+							grid-template-areas:
+								'header header'
+								'sidebar content'
+								'block-1 block-2'
+								'footer footer';
+						}
+						
+						.grid__item:nth-child(1) {
+							grid-area: header;
+						}
+						
+						.grid__item:nth-child(2) {
+							grid-area: sidebar;
+						}
+						
+						.grid__item:nth-child(3) {
+							grid-area: content;
+						}
+						
+						.grid__item:nth-child(4) {
+							grid-area: block-1;
+						}
+						
+						.grid__item:nth-child(5) {
+							grid-area: block-2;
+						}
+						
+						.grid__item:nth-child(6) {
+							grid-area: footer;
+						}
+					</code></pre>
+
+					<img src="assets/images/6 grid-template-areas.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<h3>Align content along the horizontal axis</h3>
+			</section>
+
+			<section>
+				<section>
+					<p>justify-content</p>
+				</section>
+				<section>
+					<p>justify-content: start;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							justify-content: start;
+						}
+					</code></pre>
+					<img src="assets/images/12 justify-content start.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-content: end;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							justify-content: end;
+						}
+					</code></pre>
+					<img src="assets/images/13 justify-content end.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-content: center;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							justify-content: center;
+						}
+					</code></pre>
+					<img src="assets/images/14 justify-content center.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-content: stretch;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="3">
+						.grid {
+							display: grid;
+							justify-content: stretch;
+						}
+					</code></pre>
+					<img src="assets/images/15 justify-content stretch.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-content: space-between;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							justify-content: space-between;
+						}
+					</code></pre>
+					<img src="assets/images/18 justify-content space-between.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-content: space-around;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							justify-content: space-around;
+						}
+					</code></pre>
+					<img src="assets/images/17 justify-content space-around.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-content: space-evenly;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							justify-content: space-evenly;
+						}
+					</code></pre>
+					<img src="assets/images/16 justify-content space-evenly.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<h3>Align the grid along the vertical axis</h3>
+			</section>
+
+			<section>
+				<section>
+					<p>align-content</p>
+				</section>
+				<section>
+					<p>align-content: start;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							align-content: start;
+						}
+					</code></pre>
+					<img src="assets/images/19 align-content start.png" alt="grid">
+				</section>
+				<section>
+					<p>align-content: end;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							align-content: end;
+						}
+					</code></pre>
+					<img src="assets/images/20 align-content end.png" alt="grid">
+				</section>
+				<section>
+					<p>align-content: center;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							align-content: center;
+						}
+					</code></pre>
+					<img src="assets/images/21 align-content center.png" alt="grid">
+				</section>
+				<section>
+					<p>align-content: stretch;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template-columns: repeat(3, 200px);
+							align-content: stretch;
+						}
+					</code></pre>
+					<img src="assets/images/22 align-content stretch.png" alt="grid">
+				</section>
+				<section>
+					<p>align-content: space-between;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							align-content: space-between;
+						}
+					</code></pre>
+					<img src="assets/images/23 align-content space-between.png" alt="grid">
+				</section>
+				<section>
+					<p>align-content: space-around;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							align-content: space-around;
+						}
+					</code></pre>
+					<img src="assets/images/24 align-content space-around.png" alt="grid">
+				</section>
+				<section>
+					<p>align-content: space-evenly;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 300px;
+							grid-template: repeat(2, 100px) / repeat(3, 200px);
+							align-content: space-evenly;
+						}
+					</code></pre>
+					<img src="assets/images/25 align-content space-evenly.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<h3>Align grid items along the horizontal axis</h3>
+			</section>
+
+			<section>
+				<section>
+					<p>justify-items</p>
+				</section>
+				<section>
+					<p>justify-items: stretch;</p>
+					<p>(default)</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							background-color: #eee;
+							display: grid;
+							grid-template: repeat(2, 100px) / repeat(3, 1fr);
+							justify-items: stretch;
+						}
+					</code></pre>
+					<img src="assets/images/26 justify-items stretch.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-items: start;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="4">
+						.grid {
+							display: grid;
+							grid-template: repeat(2, 100px) / repeat(3, 1fr);
+							justify-items: start;
+						}
+					</code></pre>
+					<img src="assets/images/27 justify-items start.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-items: end;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="4">
+						.grid {
+							display: grid;
+							grid-template: repeat(2, 100px) / repeat(3, 1fr);
+							justify-items: end;
+						}
+					</code></pre>
+					<img src="assets/images/28 justify-items end.png" alt="grid">
+				</section>
+				<section>
+					<p>justify-items: center;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="4">
+						.grid {
+							display: grid;
+							grid-template: repeat(2, 100px) / repeat(3, 1fr);
+							justify-items: center;
+						}
+					</code></pre>
+					<img src="assets/images/29 justify-items center.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<h3>Align the grid items along the vertical axis</h3>
+			</section>
+
+			<section>
+				<section>
+					<p>align-items</p>
+				</section>
+				<section>
+					<p>align-items: stretch;</p>
+					<p>(default)</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="5">
+						.grid {
+							display: grid;
+							height: 200px;
+							grid-template-columns: repeat(3, 1fr);
+							align-items: stretch;
+						}
+					</code></pre>
+					<img src="assets/images/30 align-items stretch.png" alt="grid">
+				</section>
+				<section>
+					<p>align-items: start;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="4">
+						.grid {
+							display: grid;
+							grid-template: repeat(2, 100px) / repeat(3, 1fr);
+							align-items: start;
+						}
+					</code></pre>
+					<img src="assets/images/31 align-items start.png" alt="grid">
+				</section>
+				<section>
+					<p>align-items: end;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="4">
+						.grid {
+							display: grid;
+							grid-template: repeat(2, 100px) / repeat(3, 1fr);
+							align-items: end;
+						}
+					</code></pre>
+					<img src="assets/images/32 align-items end.png" alt="grid">
+				</section>
+				<section>
+					<p>align-items: center;</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="4">
+						.grid {
+							display: grid;
+							grid-template: repeat(2, 100px) / repeat(3, 1fr);
+							align-items: center;
+						}
+					</code></pre>
+					<img src="assets/images/33 align-items center.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<p>grid-column-gap</p>
+					<p>grid-row-gap</p>
+					<p>Specifies the size of the grid lines</p>
+				</section>
+				<section>
+					<p><small> Note: The grid- prefix will be removed and grid-column-gap and grid-row-gap renamed to
+							column-gap and row-gap.</small></p>
+					<p>column-gap</p>
+					<p>row-gap</p>
+				</section>
+				<section>
+					<p>column-gap</p>
+					<p>row-gap</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="6,7">
+						.grid {
+							background-color: #eee;
+							display: grid;
+							height: 200px;
+							grid-template-columns: repeat(3, 1fr);
+							row-gap: 20px;
+							column-gap: 10px;
+						}
+					</code></pre>
+					<img src="assets/images/34 gap column row.png" alt="grid">
+				</section>
+				<section>
+					<p>Shorthand </p>
+					<p>gap: "grid-row-gap" "grid-column-gap";</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="6">
+						.grid {
+							background-color: #eee;
+							display: grid;
+							height: 200px;
+							grid-template-columns: repeat(3, 1fr);
+							gap: 20px 10px;
+						}
+					</code></pre>
+					<img src="assets/images/34 gap column row.png" alt="grid">
+				</section>
+				<section>
+					<p>The same spacing between columns and rows</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="6">
+						.grid {
+							background-color: #eee;
+							display: grid;
+							height: 200px;
+							grid-template-columns: repeat(3, 1fr);
+							gap: 20px;
+						}
+					</code></pre>
+					<img src="assets/images/35 gap 20px 20px.png" alt="grid">
+				</section>
+			</section>
+			<section>
+				<h4>Properties for the item Grid</h3>
+			</section>
+			<section>
+				<h4>justify-self</h4>
+				<p>justify-self: start | end | center | stretch;</p>
+				<ul>
+					<li>start – aligns the grid item to be flush with the start edge of the cell</li>
+					<li>end – aligns the grid item to be flush with the end edge of the cell</li>
+					<li>center – aligns the grid item in the center of the cell</li>
+					<li>stretch – fills the whole width of the cell (this is the default)</li>
+				</ul>
+			</section>
+			<section>
+				<h4>align-self</h4>
+				<p>align-self: start | end | center | stretch;</p>
+				<ul>
+					<li>start – aligns the grid item to be flush with the start edge of the cell</li>
+					<li>end – aligns the grid item to be flush with the end edge of the cell</li>
+					<li>center – aligns the grid item in the center of the cell</li>
+					<li>stretch – fills the whole height of the cell (this is the default)</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Defining an Implicit Grid</h3>
+				<p>grid-auto-columns</p>
+				<p>grid-auto-rows</p>
+				<p>grid-auto-flow</p>
+			</section>
+
+			<section>
+				<p>For more details, please visit the website</p>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank"
+					title="Grid layout">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout</a>
+			</section>
+			<section>
+				<h3>Thanks for attention</h3>
+				<p>Created by Vadim Bykov</p>
+			</section>
+		</div>
+	</div>
+
+	<!-- <section>
+				<h3>Defining an Implicit Grid</h3>
+				<p>grid-auto-columns</p>
+				<p>grid-auto-rows</p>
+				<p>grid-auto-flow</p>
+			</section>
+
+			<section>
+				<section>
+					<p>grid-auto-columns</p>
+				</section>
+				<section>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template: 1fr / repeat(3, 200px);
+							grid-auto-columns: 50px;
+							grid-auto-flow: column;
+						}
+					</code></pre>
+					<img src="assets/images/7 grid-auto-columns.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<p>grid-auto-rows</p>
+				</section>
+				<section>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						.grid {
+							display: grid;
+							grid-template: 1fr / repeat(3, 200px);
+							grid-auto-rows: 100px;
+						}
+					</code></pre>
+					<img src="assets/images/8 grid-auto-rows.png" alt="grid">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<p>grid-auto-flow: row;</p>
+					<p>(default value)</p>
+					<img src="assets/images/9 grid-auto-flow row.png" alt="grid">
+				</section>
+				<section>
+					<p>grid-auto-flow: column;</p>
+					<img src="assets/images/10 grid-auto-flow column.png" alt="grid">
+				</section>
+				<section>
+					<p>grid-auto-flow: dense;</p>
+					<img src="assets/images/11 grid-auto-flow dense.png" alt="grid">
+				</section>
+			</section> -->
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>

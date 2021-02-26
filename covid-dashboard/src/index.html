@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>covid-19</title>
+
+  <link rel="shortcut icon" href="assets/images/Coronavirus_SVG_Vector_Image.svg">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrapper">
+      <div class="header-block">
+        <div class="left-part">
+          <img src="assets/images/WHO.png" alt="who">
+          <a href="https://www.who.int/" target="_blank" title="https://www.who.int" class="who">WHO</a>
+        </div>
+
+        <div class="center-part">
+          <img class="header-logo" src="assets/images/Coronavirus_SVG_Vector_Image.svg" alt="logo">
+          <h1 class="header-title">COVID-19 Dashboard</h1>
+        </div>
+
+        <div class="right-part">
+          <img class="protection-logo" src="assets/images/protect1.png" alt="protection">
+          <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html" target="_blank"
+            title="https://www.cdc.gov/coronavirus/2019" class="protection">Protection</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="wrapper">
+
+      <div class="main-block">
+        <aside class="aside-left">
+          <div class="country">
+            <div class="btn-block">
+              <button class="btn-list">Total confirmed</button>
+            </div>
+            <div class="search-country ">
+              <div class="search-box">
+                <input type="text" class="use-keyboard-input" id="search-input" placeholder="Search ..."
+                  autocomplete="off" />
+              </div>
+            </div>
+            <div class="country-list">
+
+            </div>
+          </div>
+          <img class="open-block" src="assets/images/open_in.svg" alt="open">
+        </aside>
+        <!-- <div id='map' class="map" style='width: 400px; height: 300px;'></div> -->
+
+        <div class="map-block">
+          <div id='map' class="map"></div>
+          <div class="legend">
+            <div class="item item-1">&#8805;1000000</div>
+            <div class="item item-2">&#8805;100000</div>
+            <div class="item item-3">&#8805;10000</div>
+            <div class="item item-4">&#8804;10000</div>
+          </div>
+          <button class="btn-map">button</button>
+          <img class="open-block" src="assets/images/open_in.svg" alt="open">
+        </div>
+
+        <aside class="aside-right">
+          <div class="global-data">
+            <div class="name">Global data</div>
+            <div class="date">Date: ... no date from API</div>
+          </div>
+          <div class="data">
+            <div class="total-cases">
+              <div class="aside-r title">Cases</div>
+              <div class="aside-r value">0</div>
+              <div class="aside-r new-value">+0</div>
+            </div>
+            <div class="recovered">
+              <div class="aside-r title">Recovered</div>
+              <div class="aside-r value">0</div>
+              <div class="aside-r new-value">+0</div>
+            </div>
+            <div class="deaths">
+              <div class="aside-r title">Deaths</div>
+              <div class="aside-r value active">0</div>
+              <div class="aside-r new-value">+0</div>
+            </div>
+          </div>
+          <div class="btn-blockRight">
+            <!-- <button class="btn-asideR">Total data</button> -->
+          </div>
+
+          <div class="chart">
+            <canvas id="line-chart"></canvas>
+            <div class="btn-blockRight">
+              <button class="btn-chart btn-asideR">Total data</button>
+            </div>
+          </div>
+          <img class="open-block" src="assets/images/open_in.svg" alt="open">
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrapperr">
+      <div class="footer">
+        <span>2020 </span>
+        <span class="logo-rs">
+          <a href="https://rs.school/js" target="_blank" title="Курс «JavaScript/Front-end»"><img
+              src="assets/images/rs_school_js.svg" alt="logo" width="50"></a>
+        </span>
+        <img src="assets/images/github.svg" alt="github" width="20">
+        <span>
+          <a href="https://github.com/Vadim-Bykov" target="_blank" title="github.com/Vadim-Bykov">Vadim-Bykov</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+    integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+  <!-- <script src="js/index.js" type="module"></script> -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+</body>
+
+</html>

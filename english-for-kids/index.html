@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>English</title>
+   <link rel="shortcut icon" href="assets/favicon_1.ico">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <div class="overlay"></div>
+   <!-- <div class="main__wrapper"> -->
+   <header class="header">
+      <div class="wrapper nav_burger">
+         <nav class="nav">
+            <p class="main item_nav active" data-main="main">Main page</p>
+
+         </nav>
+         <div class="header__block">
+            <div class="burger__menu">
+               <p class="top"></p>
+               <p class="middle"></p>
+               <p class="bottom"></p>
+            </div>
+            <h1>English for kids</h1>
+            <div class="play-train">
+               <input type="checkbox" id="switch" />
+               <label for="switch">
+                  <p>PLAY</p>
+                  <p>TRAIN</p>
+               </label>
+            </div>
+         </div>
+      </div>
+   </header>
+
+   <main class="topic">
+      <div class="wrapper">
+         <div class="topic">
+            <h2 class="title_page">Main page</h2>
+            <div class="topic__container">
+               <div class="container">
+
+               </div>
+
+
+            </div>
+         </div>
+      </div>
+      <div class="win">
+         <p class="win__text">Success!</p>
+         <img src="assets/img/win_smile.png" alt="smile">
+      </div>
+      <div class="lose">
+         <p class="lose__text">Success!</p>
+         <img src="assets/img/lose_smile.png" alt="lose">
+      </div>
+   </main>
+
+   <div class="statistics">
+      <div class="buttons">
+         <button class="reset">Reset</button>
+         <button class="repeat">Repeat difficult words</button>
+      </div>
+      <div class="wrapper">
+         <div class="table">
+            <div class="row main-head">
+               <p class="cell-head category" data-item="category">Category</p>
+               <p class="cell-head word" data-item="word">Word</p>
+               <p class="cell-head translation" data-item="translation">Translation</p>
+               <p class="cell-head train" data-item="train">Train</p>
+               <p class="cell-head correct" data-item="correct">&plus;</p>
+               <p class="cell-head incorrect" data-item="incorrect">&minus;</p>
+               <p class="cell-head percent" data-item="percent">%</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="star_container">
+      <div class="empty_container">
+         <!-- <img class="star empty" src="assets/empty_star.png" alt="star"> -->
+      </div>
+      <div class="gold_container">
+         <!-- <img class="star gold" src="assets/gold_star.png" alt="star"> -->
+      </div>
+   </div>
+
+   <div class="button_container">
+      <button class="button_start">
+         <span class="start_span">START GAME</span><img class="button_repeat" data-repeat="repeat"
+            src="assets/img/refresh-white-18dp.svg" alt="button">
+         <audio data-audio="correct" src="assets/audio/correct.mp3"></audio>
+         <audio data-audio="error" src="assets/audio/error.mp3"></audio>
+      </button>
+   </div>
+
+   <footer>
+      <div class="wrapperr">
+         <div class="footer">
+            <span>2020 </span>
+            <span>
+               <a href="https://rs.school/js" target="_blank" title="Курс «JavaScript/Front-end»"><img
+                     src="assets/img/rs_school_js.svg" alt="logo" width="50"></a>
+            </span>
+            <img src="assets/img/github.svg" alt="github" width="20">
+            <span>
+               <a href="https://github.com/Vadim-Bykov" target="_blank" title="github.com/Vadim-Bykov">Vadim-Bykov</a>
+            </span>
+         </div>
+      </div>
+   </footer>
+
+
+   <!-- </div> -->
+
+   <script src="cards.js"></script>
+   <script src="play.js"></script>
+   <script src="burger.js"></script>
+   <script src="statistics.js"></script>
+   <!-- <script src="content.js"></script> -->
+
+</body>
+
+</html>
