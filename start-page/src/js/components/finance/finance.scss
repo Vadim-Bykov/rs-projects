@@ -1,0 +1,38 @@
+h3 {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 22px;
+  height: 45px;
+  background-color: #eeeeee;
+}
+
+.currencyList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.currencyList p {
+  font-size: 0.7rem;
+  margin: 5px;
+}
+
+.wrapCurrencyChoiceBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 5px;
+}
+
+.currencyChoiceBlock {
+  select {
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+}
+
+#line-chart {
+  height: 300px;
+  width: 100%;
+  padding: 5px;
+}

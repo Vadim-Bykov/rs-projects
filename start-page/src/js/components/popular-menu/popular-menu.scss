@@ -1,0 +1,146 @@
+.menu-content {
+  height: 74vh;
+  padding: 10px;
+  overflow: auto;
+}
+
+.menu-content::-webkit-scrollbar {
+  width: 10px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+}
+
+.menu-content::-webkit-scrollbar-thumb {
+  background-color: #008080;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #f3faf7;
+  &:hover {
+    background-color: #53a0ee;
+  }
+}
+
+.website {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: rgba(78, 167, 166, 0.6);
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+  }
+
+  .website-logo {
+    width: 24px;
+    margin-right: 15px;
+  }
+}
+
+.form {
+  display: grid;
+  grid-gap: 5px;
+  padding: 10px;
+}
+
+.name,
+.url {
+  display: grid;
+  grid-gap: 5px;
+}
+.url-input,
+.name-input {
+  border: 1px solid #cecece;
+  background: #f6f6f6;
+  border-radius: 8px;
+  padding: 5px;
+  font-size: 0.8rem;
+
+  &:invalid {
+    border-color: red;
+    color: red;
+  }
+}
+
+%button {
+  margin: 0 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: #f6f6f6;
+  font-size: 0.8rem;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.1s ease-in-out;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+@mixin button($color) {
+  background-color: $color;
+  margin: 0 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: #f6f6f6;
+  font-size: 0.8rem;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.1s ease-in-out;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.btn-block {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.delete {
+  @include button(gray);
+}
+
+.submit {
+  @include button(#007bff);
+}
+
+.danger-block {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.danger {
+  @include button(#dc3545);
+}
+
+
+@media (max-width: 1700px) {
+  .btn-block {
+    display: grid;
+    justify-content: center;
+    grid-gap: 20px;
+  }
+
+  .submit{
+    grid-row: 1/2;
+  }
+
+  .danger-block {
+    margin-top: 10px;
+  }
+}
